@@ -1,0 +1,133 @@
+body{
+    background: rgb(0, 110, 255);
+}
+.modelimg{
+  max-width: 100%;
+  width: 600px;
+  height: 600px;
+  
+  }
+
+  #overlay{
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    background-color: white;
+}
+#overlay.einde{
+    animation-name: einde,rotate;
+    animation-duration: 4s;
+    animation-iteration-count: 1;
+    width: 0px;
+    height: 0px;
+    position: fixed;
+    top:-100%; right:-100%; left:-100%; bottom:-100%;
+    animation-fill-mode: forwards;
+    margin:auto;
+}
+#vierkant-begin{
+    animation-name: begin,rotate;
+    animation-duration: 4s;
+    width: 0px;
+    height: 0px;
+    background: rgb(0, 255, 213);
+    position: fixed;
+    top:-100%; right:-100%; left:-100%; bottom:-100%;
+    margin:auto;
+    z-index:0;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+   
+}
+
+
+
+.ballen{
+    display: none;
+}
+.ballen.active{
+    display: block;
+    width: 200px;
+    height: 200px;
+    border-radius: 100%;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    right: 50%;
+    top: 50%;
+    position: absolute;
+}
+
+#bal1{
+    animation-name: breath2, kleur2;
+    animation-duration: 4s;
+    animation-delay: 2s;
+    animation-iteration-count: infinite;
+    background: rgba(7, 236, 148, 0);
+    animation-timing-function: linear;
+}
+
+.vierkant{
+    display: none;
+}
+.vierkant.active{
+    display: block;
+    width: 200px;
+    height: 200px;
+    position: fixed;
+    top:-100%; right:-100%; left:-100%; bottom:-100%;
+    margin:auto;
+}
+
+#vierkant1{
+    animation-name: breath1, rotate, kleur1;
+    animation-duration: 6s;
+    animation-delay: 3.5s;
+    animation-iteration-count: infinite;
+    background: rgba(255, 166, 0, 0);
+    transition: ease-in-out;
+    animation-timing-function: linear;
+  
+}
+
+
+
+
+
+@keyframes breath1{
+  0%  {width: 0px; height: 0px;}
+  25% {width: 300px; height: 300px;}
+  50% { width: 350px; height: 350px;}
+  75% {width: 400px; height: 400px;}
+  100%{width: 0px; height: 0px;}
+}
+@keyframes breath2{
+    0%  {width: 200px; height: 200px;}
+    25% {width: 300px; height: 300px;}
+    50% { width: 470px; height: 470px;}
+    75% {width: 500px; height: 500px;}
+    100%{width: 200px; height: 200px;}
+  }
+
+@keyframes begin{
+    0%  {width: 100vw; height: 100vh;}
+    50% {width: 300px; height: 300px;}
+    100%{width: 0px; height: 0px;}
+}
+@keyframes rotate{
+    0%{transform: rotate(90deg);}
+    100%{transform: rotate(3600deg);}
+}
+@keyframes kleur1{
+    0% {background: rgb(255, 166, 0);}
+    100% {background: rgb(255, 166, 0);}
+}
+
+@keyframes kleur2{
+    0% {background: rgb(7, 236, 148);}
+    100% {background: rgb(7, 236, 148);}
+}
+
+@keyframes einde{
+    0%{ width: 100vw; height: 100vh; border-radius: 0; background: red;}
+    100%{ width: 0vw; height: 0vh;border-radius: 50%;background: blue;}
+}
